@@ -67,4 +67,14 @@ public class RadioTest {
         assertEquals(0, radio.getMinVolume());
     }
 
+    @Test
+
+    public void checkNextStation(){
+        Radio radio = new Radio();
+        assertEquals(0, radio.getNextStation());
+        radio.setNextStation(0);
+        assertEquals(0, radio.getNextStation());
+    }
+
+
 }
