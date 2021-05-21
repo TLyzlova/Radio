@@ -71,10 +71,34 @@ public class RadioTest {
 
     public void checkNextStation(){
         Radio radio = new Radio();
-        assertEquals(0, radio.getNextStation());
-        radio.setNextStation(0);
-        assertEquals(0, radio.getNextStation());
+        assertEquals(0, radio.getCurrentStation());
+        radio.setCurrentStation(10);
+        assertEquals(0, radio.getCurrentStation());
+    }
+    @Test
+
+    public void checkPrevStation(){
+        Radio radio = new Radio();
+        assertEquals(0, radio.getCurrentStation());
+        radio.setCurrentStation(-1);
+        assertEquals(9, radio.getCurrentStation());
+    }
+    @Test
+
+    public void checkIncreseVolume(){
+        Radio radio = new Radio();
+        assertEquals(0, radio.getCurrentVolume());
+        radio.setCurrentVolume(10);
+        assertEquals(10, radio.getCurrentVolume());
     }
 
+    @Test
+
+    public void checkDecreseVolume(){
+        Radio radio = new Radio();
+        assertEquals(0, radio.getCurrentVolume());
+        radio.setCurrentVolume(-1);
+        assertEquals(0, radio.getCurrentVolume());
+    }
 
 }
