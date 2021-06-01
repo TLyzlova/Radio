@@ -4,8 +4,20 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
+
+    @Test
+    public void shouldSetPersonal(){
+        Radio radio = new Radio(
+                120,
+                35);
+
+        assertEquals(120, radio.getCurrentVolume());
+        assertEquals(35, radio.getCurrentStation());
+
+    }
 
     @Test
     public void setCurrentStation() {
@@ -19,7 +31,7 @@ class RadioTest {
     public void checkMaxStation() {
         Radio radio = new Radio();
         assertEquals(0, radio.getCurrentStation());
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(11);
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -44,8 +56,8 @@ class RadioTest {
     @Test
     public void checkLimitStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
-        assertEquals(9, radio.getCurrentStation());
+        radio.setCurrentStation(10);
+        assertEquals(10, radio.getCurrentStation());
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
@@ -64,7 +76,7 @@ class RadioTest {
         Radio radio = new Radio();
         assertEquals(0, radio.getCurrentStation());
         radio.prevStation();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
     }
 
     @Test
@@ -78,10 +90,10 @@ class RadioTest {
     @Test
     public void checkMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
-        assertEquals(10, radio.getCurrentVolume());
-        radio.setCurrentVolume(11);
-        assertEquals(10, radio.getCurrentVolume());
+        radio.setCurrentVolume(100);
+        assertEquals(100, radio.getCurrentVolume());
+        radio.setCurrentVolume(101);
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
@@ -94,7 +106,7 @@ class RadioTest {
     }
 
     @Test
-    public void checkIncreseCurrentVolume() {
+    public void checkIncreaseCurrentVolume() {
         Radio radio = new Radio();
         assertEquals(0, radio.getCurrentVolume());
         radio.getMaxVolume();
@@ -104,10 +116,10 @@ class RadioTest {
     @Test
     public void checkLimitMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
-        assertEquals(10, radio.getCurrentVolume());
+        radio.setCurrentVolume(100);
+        assertEquals(100, radio.getCurrentVolume());
         radio.getMaxVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
